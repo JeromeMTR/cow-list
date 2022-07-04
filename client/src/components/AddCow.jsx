@@ -26,11 +26,14 @@ class AddCow extends React.Component {
 
   render() {
     return (
+      <div>
+      <h1> Add A Cow To The Butcher Farm</h1>
       <form onSubmit={e => this.onSubmit(e)}>
         <input type='text' onChange={e => this.onChange(e, 'name')}></input>
         <input type='text' onChange={e => this.onChange(e, 'description')}></input>
         <input type='submit' value='ADD COW'></input>
       </form>
+      </div>
     )
   }
 }

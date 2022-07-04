@@ -4,7 +4,7 @@ import AddCow from './AddCow.jsx';
 import CowList from './CowList.jsx';
 import ShowCow from './ShowCow.jsx';
 
-const server = 'http://localhost/3000/api/cows';
+const server = 'http://localhost:3000/api/cows';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -24,6 +24,7 @@ class App extends React.Component {
   }
 
   post(cow) {
+    console.log('cow', cow);
     axios.post(server, cow)
       .then(this.get())
       .catch(err => console.log(err));
@@ -47,9 +48,6 @@ class App extends React.Component {
       currentCow: cow.name,
       currentDescription: cow.description,
       showCow: true
-    }, ()=> {
-      console.log('after', this.state);
-      console.log('this is cow obj', cow);
     })
   }
 

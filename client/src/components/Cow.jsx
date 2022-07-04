@@ -6,7 +6,7 @@ let Cow = (props) => {
     description: props.description
   }
   return (
-    <li onClick={props.click.bind(null, cowObj)}>{props.cow.toUpperCase()}</li>
+    <li className="cows" onClick={props.click.bind(null, cowObj)}>{props.cow.toUpperCase()}</li>
   )
 }
 
