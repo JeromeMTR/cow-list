@@ -1,12 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 import AddCow from './AddCow.jsx';
+import CowList from './CowList.jsx';
 
 const server = 'http://localhost/3000/api/cows';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      cows: ['boy', 'girl', 'cow']
+      currentCow: ''
+    };
     this.post = this.post.bind(this);
   }
 
@@ -18,8 +22,8 @@ class App extends React.Component {
 
   get() {
     axios.get(server)
-      .then(()=> {
-
+      .then((response)=> {
+        this.setState({cows: response.data})
       })
       .catch(err => console.log(err));
   }
@@ -28,6 +32,7 @@ class App extends React.Component {
     return (
       <div>
         <AddCow post={this.post}/>
+        <CowList cowList={this.state.cows}/>
       </div>
     )
   }
