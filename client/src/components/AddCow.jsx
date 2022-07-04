@@ -26,7 +26,7 @@ class AddCow extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSumbit}>
+      <form onSubmit={e => this.onSubmit(e)}>
         <input type='text' onChange={e => this.onChange(e, 'name')}></input>
         <input type='text' onChange={e => this.onChange(e, 'description')}></input>
         <input type='submit' value='ADD COW'></input>
